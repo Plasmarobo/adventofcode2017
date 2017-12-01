@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-I.
+CFLAGS=-I. -g -Wall
 LDFLAGS=
 LIBS=-lm
 
@@ -8,8 +8,8 @@ FILES = day1.cpp
 %.o: %.cpp $(FILES)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-%.bin: %.o
-	$(CC) -o $@ $< $(LDFLAGS)
+%: %.o
+	$(CC) -o $@ $< $(LDFLAGS) $(CFLAGS)
 
 .PHONY: clean
 

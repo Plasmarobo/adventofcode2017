@@ -39,7 +39,7 @@ class StreamParser
     
   #garbage([garbage])
   def on_garbage callback
-    @group_content = callback
+    @garbage = callback
   end
 
   def parse(char)

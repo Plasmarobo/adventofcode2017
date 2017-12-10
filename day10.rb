@@ -33,7 +33,6 @@
   end
 
   def hash(length)
-    print "Hashing with len #{length}\n"
     length_remaining = length
     chunk = []
     insert_index = TieHash::HashPtr.new(@hash_index.value(), @list.length)
@@ -42,12 +41,10 @@
       @hash_index.inc()
       length_remaining -= 1
     end
-    print chunk, "\n"
     until chunk.length <= 0 do
       @list[insert_index.value()] = chunk.shift()
       insert_index.inc()
     end
-    print @list, "\n"
     @skip_size.times { @hash_index.inc }
     @skip_size += 1
   end
